@@ -8,3 +8,6 @@ st.header("En este espacio comienzo a desarrollar mis aplicaciones para interfac
 st.write("Facilmente puedo realizar backend y frontend")
 image = Image.open('mono.jpg')
 st.image(image, caption='Interfaces multimodales')
+
+texto = st.text_input('Escribe algo', 'Esre es mi texto')
+st.write('El texto escrito es', texto)
