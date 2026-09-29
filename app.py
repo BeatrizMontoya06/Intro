@@ -129,7 +129,7 @@ with st.sidebar:
         img_y2k = aplicar_estilo_y2k(img_original)
         
         st.markdown('<div class="y2k-photo-frame">', unsafe_allow_html=True)
-        st.image(img_y2k, caption='★ Bea @ Y2K Cyber Space ★ 🐝', use_container_width=True)
+        st.image(img_y2k, caption='★ Bea @ Cyber Space ★ 🐝', use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
     else:
         st.info("📌 [AQUÍ VA TU FOTO DE CARA/PERFIL - 'mono.jpeg']")
