@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 import datetime
+import os
 
 # ---------------------------------------------------------
 # CONFIGURACIÓN DE LA PÁGINA (ESTILO Y2K / FRUTIGER AERO + ABEJAS)
@@ -96,7 +97,7 @@ st.title("🐝 ✨ ~* Welcome to Bea's Blog *~ ✨ 🐝")
 st.write("---")
 
 # ---------------------------------------------------------
-# BARRA LATERAL (SIDEBAR) - BIOGRAFÍA, FOTO Y REPRODUCTOR FRUTIGER AERO
+# BARRA LATERAL (SIDEBAR) - BIOGRAFÍA, FOTO Y AUDIO LOCAL
 # ---------------------------------------------------------
 with st.sidebar:
     st.header("👤 PERFIL / SOBRE MÍ")
@@ -109,27 +110,19 @@ with st.sidebar:
         st.info("📌 [AQUÍ VA TU FOTO DE CARA/PERFIL - 'mono.jpg']")
 
     # -----------------------------------------------------
-    # SECCIÓN DE MÚSICA FRUTIGER AERO (SELECCIÓN PERSONALIZADA)
+    # MÚSICA DE FONDO (DESDE ARCHIVO LOCAL)
     # -----------------------------------------------------
-    with st.expander("🌐 **FRUTIGER AERO AUDIO PLAYER**", expanded=True):
-        st.write("🎧 Selecciona una joya del universo Frutiger Aero:")
-        
-        # Diccionario con tus 3 canciones específicas
-        canciones_frutiger = {
-            "💿 Takeshi Abo – Lease": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-            "🎮 Wii U – New Look": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-            "✨ Aphex Twin – Flim": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
-        }
-        
-        cancion_seleccionada = st.selectbox(
-            "Selecciona tu track:",
-            list(canciones_frutiger.keys())
-        )
-        
-        # Reproductor de audio
-        audio_url = canciones_frutiger[cancion_seleccionada]
-        st.audio(audio_url, format="audio/mp3", loop=True)
-        st.caption("🫧 Sintetizadores cristalinos, nostalgia acuática y tecnología optimista.")
+    st.write("---")
+    st.subheader("🎵 Background Music")
+    
+    # Nombre del archivo MP3 que pondrás en tu carpeta
+    archivo_musica = "musica.mp3"
+    
+    if os.path.exists(archivo_musica):
+        st.audio(archivo_musica, format="audio/mp3", loop=True)
+        st.caption("🎧 Sonando desde los archivos locales.")
+    else:
+        st.info("📌 Coloca tu archivo de canción como `musica.mp3` en la misma carpeta del proyecto para que se reproduzca aquí.")
 
     st.write("---")
     st.subheader("★ Datos Personales ★")
@@ -261,7 +254,7 @@ with tab_multimodal:
         if modo == 'Visual':
             st.write('👁️ La vista es fundamental para la interpretación gráfica y el mapping.')
         elif modo == 'Auditiva':
-            st.write('🎧 La audición con Lease y Flim potencia la estética Frutiger Aero.')
+            st.write('🎧 La audición potencia la atmósfera e inmersión de la interfaz.')
         elif modo == 'Táctil':
             st.write('✋ El tacto con elementos análogos aporta tridimensionalidad.')
 
@@ -283,7 +276,7 @@ with tab_comentarios:
     # Historial de comentarios
     if 'comentarios' not in st.session_state:
         st.session_state['comentarios'] = [
-            {"nombre": "RetroFan2000", "fecha": "2026-09-28", "mensaje": "¡Amé que pusieras 'Lease' de Takeshi Abo y 'Flim' de Aphex Twin!"},
+            {"nombre": "RetroFan2000", "fecha": "2026-09-28", "mensaje": "¡Amé el ambiente sonoro y el diseño de la página!"},
             {"nombre": "EAFIT_Visitor", "fecha": "2026-09-29", "mensaje": "Increíble portafolio de experiencias inmersivas. ¡Éxitos desde Medayork!"}
         ]
 
