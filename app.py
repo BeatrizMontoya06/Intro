@@ -3,7 +3,7 @@ from PIL import Image
 import datetime
 
 # ---------------------------------------------------------
-# CONFIGURACIÓN DE LA PÁGINA (ESTILO Y2K + ABEJAS)
+# CONFIGURACIÓN DE LA PÁGINA (ESTILO Y2K / FRUTIGER AERO + ABEJAS)
 # ---------------------------------------------------------
 st.set_page_config(
     page_title="Bea's Hive Webspace 🐝✨",
@@ -96,7 +96,7 @@ st.title("🐝 ✨ ~* Welcome to Bea's Blog *~ ✨ 🐝")
 st.write("---")
 
 # ---------------------------------------------------------
-# BARRA LATERAL (SIDEBAR) - BIOGRAFÍA, FOTO Y REPRODUCTOR
+# BARRA LATERAL (SIDEBAR) - BIOGRAFÍA, FOTO Y REPRODUCTOR FRUTIGER AERO
 # ---------------------------------------------------------
 with st.sidebar:
     st.header("👤 PERFIL / SOBRE MÍ")
@@ -109,27 +109,27 @@ with st.sidebar:
         st.info("📌 [AQUÍ VA TU FOTO DE CARA/PERFIL - 'mono.jpg']")
 
     # -----------------------------------------------------
-    # SECCIÓN DE MÚSICA DE FONDO (CAJA DESPLEGABLE)
+    # SECCIÓN DE MÚSICA FRUTIGER AERO (CAJA DESPLEGABLE)
     # -----------------------------------------------------
-    with st.expander("🎵 **BEA'S HIVE RADIO 2000s (Música)**", expanded=True):
-        st.write("🎧 Elige una canción para ambientar tu visita:")
+    with st.expander("🌐 **FRUTIGER AERO AUDIO PLAYER**", expanded=True):
+        st.write("🎧 Elige un track con vibra Frutiger Aero de los 2000s:")
         
-        # Diccionario con las 3 canciones (puedes reemplazar los enlaces por tus propios archivos .mp3 o URLs)
-        canciones = {
-            "🎧 Breakcore Vibe (Favorita Bea)": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-            "🌸 Y2K / Vaporwave Chill": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-            "👾 8-Bit Chiptune Retro": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+        # Selección de canciones estilo Frutiger Aero
+        canciones_frutiger = {
+            "🌊 Wii Channel & Aero Lounge": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+            "🐬 Windows Vista Aquatic Chill": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+            "🌐 3DS eShop Tech-Lounge": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
         }
         
         cancion_seleccionada = st.selectbox(
-            "Selecciona tu track:",
-            list(canciones.keys())
+            "Selecciona tu track Frutiger Aero:",
+            list(canciones_frutiger.keys())
         )
         
-        # Reproductor de audio fijo
-        audio_url = canciones[cancion_seleccionada]
+        # Reproductor de audio
+        audio_url = canciones_frutiger[cancion_seleccionada]
         st.audio(audio_url, format="audio/mp3", loop=True)
-        st.caption("✨ La canción seguirá sonando mientras navegas.")
+        st.caption("✨ Sonido cristalino, optimismo y sintetizadores flotantes.")
 
     st.write("---")
     st.subheader("★ Datos Personales ★")
@@ -138,7 +138,7 @@ with st.sidebar:
     * **Rol:** Diseñadora Interactiva / Narrativas 3D/2D/ANG[cite: 1]
     * **Especialidad:** Unity, Maya 3D, Figma y Adobe Creative Cloud[cite: 1]
     * **Estado actual:** 🟢 Diseño Sonoro / Projection Mapping
-    * **Música favorita:** Breakcore 🎧
+    * **Música favorita:** Breakcore & Frutiger Aero Ambient 🎧
     * **Ubicación:** Medayork 🌐 *(Medellín, Col)*[cite: 1]
     """)
     
@@ -261,7 +261,7 @@ with tab_multimodal:
         if modo == 'Visual':
             st.write('👁️ La vista es fundamental para la interpretación gráfica y el mapping.')
         elif modo == 'Auditiva':
-            st.write('🎧 La audición y el Breakcore potencian el ambiente inmersivo.')
+            st.write('🎧 La audición y el Frutiger Aero potencian el ambiente inmersivo.')
         elif modo == 'Táctil':
             st.write('✋ El tacto con elementos análogos aporta tridimensionalidad.')
 
@@ -283,7 +283,7 @@ with tab_comentarios:
     # Historial de comentarios
     if 'comentarios' not in st.session_state:
         st.session_state['comentarios'] = [
-            {"nombre": "RetroFan2000", "fecha": "2026-09-28", "mensaje": "¡Me encanta la temática de abejas y Y2K!"},
+            {"nombre": "RetroFan2000", "fecha": "2026-09-28", "mensaje": "¡Me encanta la temática de abejas y los tracks Frutiger Aero!"},
             {"nombre": "EAFIT_Visitor", "fecha": "2026-09-29", "mensaje": "Increíble portafolio de experiencias inmersivas. ¡Éxitos desde Medayork!"}
         ]
 
