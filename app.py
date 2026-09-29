@@ -117,11 +117,12 @@ with st.sidebar:
     # -----------------------------------------------------
     st.markdown("""
     * **Nombre:** Bea
-    * **Rol:** Desarrolladora Frontend & Backend
-    * **Especialidad:** Interfaces Multimodales
-    * **Estado actual:** 🟢 Programando cosas geniales
-    * **Música favorita:** Pop/Rock 2000s & Vaporwave 🎧
-    * **Ubicación:** En la red 🌐
+    * **Rol:** Diseño de Narrativas 3D/2D/ANG
+    * **Especialidad:**  Unity, Maya
+3D, Figma y Adobe Creative Cloud
+    * **Estado actual:** 🟢 Diseño Sonoro/Mapping
+    * **Música favorita:** Beakcore 🎧
+    * **Ubicación:** Medayork 🌐
     """)
     
     st.write("---")
@@ -129,9 +130,7 @@ with st.sidebar:
     # -----------------------------------------------------
     # [ZONA 3: ENLACES A TUS REDES O PROYECTOS ENLACE]
     # -----------------------------------------------------
-    st.markdown("- [GitHub](#) *(Agrega tu link aquí)*")
-    st.markdown("- [LinkedIn](#) *(Agrega tu link aquí)*")
-    st.markdown("- [Email](#) *(Agrega tu correo aquí)*")
+    st.markdown("- [Instagram](#) *(https://www.instagram.com/cloo.vie/)*")
 
 
 # ---------------------------------------------------------
