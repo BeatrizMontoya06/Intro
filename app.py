@@ -129,7 +129,7 @@ with st.sidebar:
         img_y2k = aplicar_estilo_y2k(img_original)
         
         st.markdown('<div class="y2k-photo-frame">', unsafe_allow_html=True)
-        st.image(img_y2k, caption='★ Bea @ Cyber Space ★ 🐝', use_container_width=True)
+        st.image(img_y2k, caption='★ Bea @ Y2K Cyber Space ★ 🐝', use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
     else:
         st.info("📌 [AQUÍ VA TU FOTO DE CARA/PERFIL - 'mono.jpeg']")
@@ -176,9 +176,8 @@ with st.sidebar:
 # ---------------------------------------------------------
 # CONTENIDO PRINCIPAL POR PESTAÑAS (TABS)
 # ---------------------------------------------------------
-tab_inicio, tab_proyectos, tab_multimodal, tab_comentarios = st.tabs([
+tab_inicio, tab_multimodal, tab_comentarios = st.tabs([
     "🏠 Inicio / Blog 🐝", 
-    "🚀 Mis Proyectos 🍯", 
     "🎛️ Demo Multimodal ✨", 
     "💬 Librito de Visitas 📜"
 ])
@@ -218,38 +217,7 @@ with tab_inicio:
     """)
 
 # ---------------------------------------------------------
-# PESTAÑA 2: PORTAFOLIO DE PROYECTOS
-# ---------------------------------------------------------
-with tab_proyectos:
-    st.header("🛠️ GALERÍA DE PROYECTOS & EXPERIENCIAS")
-    st.write("Proyectos destacados estructurados y conceptualizados:")
-    
-    col_proj1, col_proj2 = st.columns(2)
-    
-    # Proyecto Galeria A
-    with col_proj1:
-        st.subheader("🎨 Galería A")
-        st.caption("Experiencia Inmersiva sobre Conciencia Social (Ago 2025 – Nov 2025)[cite: 1]")
-        st.write("""
-        * **Liderazgo integral:** Diseño y desarrollo de una experiencia inmersiva orientada al impacto social[cite: 1].
-        * **Estrategia técnica:** Definición y estructuración técnica de la propuesta interactiva[cite: 1].
-        * **Gestión:** Flujos de trabajo bajo presión garantizando excelencia[cite: 1].
-        """)
-        st.button("Ver detalle de Galería A 🔗", key="proj1_btn")
-
-    # Proyecto Balegries
-    with col_proj2:
-        st.subheader("🏺 Balegries")
-        st.caption("Experiencia Artística Híbrida (Jun 2022 – Nov 2022)[cite: 1]")
-        st.write("""
-        * **Narrativa digital:** Integración de cerámica física con arte digital en un entorno híbrido único[cite: 1].
-        * **Espacio virtual:** Desarrollo y despliegue interactivo para la visualización de obras artísticas[cite: 1].
-        * **Proyección urbana:** Colaboración interdisciplinaria para exposiciones en la ciudad[cite: 1].
-        """)
-        st.button("Ver detalle de Balegries 🔗", key="proj2_btn")
-
-# ---------------------------------------------------------
-# PESTAÑA 3: DEMO INTERACTIVA
+# PESTAÑA 2: DEMO INTERACTIVA
 # ---------------------------------------------------------
 with tab_multimodal:
     st.header("🎛️ PRUEBA INTERACTIVA DE COMPONENTES")
@@ -289,7 +257,7 @@ with tab_multimodal:
         st.write('👆 Presiona el botón para lanzar un efecto.')
 
 # ---------------------------------------------------------
-# PESTAÑA 4: LIBRO DE VISITAS / COMENTARIOS
+# PESTAÑA 3: LIBRO DE VISITAS / COMENTARIOS
 # ---------------------------------------------------------
 with tab_comentarios:
     st.header("💬 LIBRO DE VISITAS / GUESTBOOK 🐝")
