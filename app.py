@@ -96,7 +96,7 @@ st.title("🐝 ✨ ~* Welcome to Bea's Blog *~ ✨ 🐝")
 st.write("---")
 
 # ---------------------------------------------------------
-# BARRA LATERAL (SIDEBAR) - BIOGRAFÍA Y FOTO DE PERFIL
+# BARRA LATERAL (SIDEBAR) - BIOGRAFÍA, FOTO Y REPRODUCTOR
 # ---------------------------------------------------------
 with st.sidebar:
     st.header("👤 PERFIL / SOBRE MÍ")
@@ -108,6 +108,30 @@ with st.sidebar:
     except Exception:
         st.info("📌 [AQUÍ VA TU FOTO DE CARA/PERFIL - 'mono.jpg']")
 
+    # -----------------------------------------------------
+    # SECCIÓN DE MÚSICA DE FONDO (CAJA DESPLEGABLE)
+    # -----------------------------------------------------
+    with st.expander("🎵 **BEA'S HIVE RADIO 2000s (Música)**", expanded=True):
+        st.write("🎧 Elige una canción para ambientar tu visita:")
+        
+        # Diccionario con las 3 canciones (puedes reemplazar los enlaces por tus propios archivos .mp3 o URLs)
+        canciones = {
+            "🎧 Breakcore Vibe (Favorita Bea)": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+            "🌸 Y2K / Vaporwave Chill": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+            "👾 8-Bit Chiptune Retro": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+        }
+        
+        cancion_seleccionada = st.selectbox(
+            "Selecciona tu track:",
+            list(canciones.keys())
+        )
+        
+        # Reproductor de audio fijo
+        audio_url = canciones[cancion_seleccionada]
+        st.audio(audio_url, format="audio/mp3", loop=True)
+        st.caption("✨ La canción seguirá sonando mientras navegas.")
+
+    st.write("---")
     st.subheader("★ Datos Personales ★")
     st.markdown("""
     * **Nombre:** Beatriz Montoya Arenas[cite: 1]
@@ -143,7 +167,7 @@ tab_inicio, tab_proyectos, tab_multimodal, tab_comentarios = st.tabs([
 ])
 
 # ---------------------------------------------------------
-# PESTAÑA 1: INICIO Y ENTRADAS DEL BLOG (BASADO EN TU HOJA DE VIDA)
+# PESTAÑA 1: INICIO Y ENTRADAS DEL BLOG
 # ---------------------------------------------------------
 with tab_inicio:
     st.header("📝 ÚLTIMAS ENTRADAS DEL PANAL")
@@ -157,7 +181,7 @@ with tab_inicio:
     Como diseñadora interactiva, mi enfoque radica en crear ecosistemas digitales y experiencias inmersivas 
     que integran elementos análogos y digitales para generar impacto social y cultural[cite: 1].
     
-    Facilmente puedo desarrollar tanto frontend como backend, integrando herramientas como Unity, Maya, 
+    Fácilmente puedo desarrollar tanto frontend como backend, integrando herramientas como Unity, Maya, 
     TouchDesigner y diseño sonoro en Reaper para llevar las interfaces a otro nivel[cite: 1].
     """)
     
@@ -179,7 +203,7 @@ with tab_inicio:
     """)
 
 # ---------------------------------------------------------
-# PESTAÑA 2: PORTAFOLIO DE PROYECTOS (DE TU HOJA DE VIDA)
+# PESTAÑA 2: PORTAFOLIO DE PROYECTOS
 # ---------------------------------------------------------
 with tab_proyectos:
     st.header("🛠️ GALERÍA DE PROYECTOS & EXPERIENCIAS")
@@ -218,7 +242,7 @@ with tab_multimodal:
     
     # Entrada de texto interactiva
     texto = st.text_input('Escribe algo en la terminal retro de Bea 🐝:', '¡Las experiencias inmersivas son el futuro!')
-    st.success(f'✏️️ **Texto en consola:** {texto}')
+    st.success(f'✏ **Texto en consola:** {texto}')
 
     st.write("---")
 
