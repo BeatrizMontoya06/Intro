@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image
+from PIL import Image, ImageEnhance, ImageOps
 import datetime
 import os
 
@@ -33,9 +33,15 @@ retro_css = """
         font-family: 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif !important;
     }
 
-    /* Cajas y marcos estilo tarjeta 2000s */
-    div[data-testid="stVerticalBlock"] > div {
+    /* Marco estilo marco de fotos / Cyber Profile Y2K */
+    .y2k-photo-frame {
+        border: 3px solid #ff007f;
+        box-shadow: 0 0 15px #ff007f, 4px 4px 0px #00ffff;
+        padding: 6px;
+        background: linear-gradient(135deg, #1a0033 0%, #2b0938 100%);
         border-radius: 8px;
+        text-align: center;
+        margin-bottom: 15px;
     }
 
     /* Botones retro */
@@ -81,6 +87,19 @@ retro_css = """
 st.markdown(retro_css, unsafe_allow_html=True)
 
 # ---------------------------------------------------------
+# FUNCIÓN PARA PROCESAR LA FOTO EN ESTILO Y2K / VINTAGE DIGICAM
+# ---------------------------------------------------------
+def aplicar_estilo_y2k(imagen):
+    # Aumentar contraste y saturación estilo cámara digital de los 2000s
+    enhancer_sat = ImageEnhance.Color(imagen)
+    img_y2k = enhancer_sat.enhance(1.35)
+    
+    enhancer_contrast = ImageEnhance.Contrast(img_y2k)
+    img_y2k = enhancer_contrast.enhance(1.2)
+    
+    return img_y2k
+
+# ---------------------------------------------------------
 # MARQUESINA ANIMADA DE BIENVENIDA
 # ---------------------------------------------------------
 st.markdown(
@@ -97,17 +116,23 @@ st.title("🐝 ✨ ~* Welcome to Bea's Blog *~ ✨ 🐝")
 st.write("---")
 
 # ---------------------------------------------------------
-# BARRA LATERAL (SIDEBAR) - BIOGRAFÍA, FOTO Y AUDIO LOCAL
+# BARRA LATERAL (SIDEBAR) - BIOGRAFÍA, FOTO Y2K Y AUDIO LOCAL
 # ---------------------------------------------------------
 with st.sidebar:
     st.header("👤 PERFIL / SOBRE MÍ")
     
-    # Foto de perfil
-    try:
-        foto_perfil = Image.open('mono.jpg')
-        st.image(foto_perfil, caption='Bea @ 2000s Web 🐝', use_container_width=True)
-    except Exception:
-        st.info("📌 [AQUÍ VA TU FOTO DE CARA/PERFIL - 'mono.jpg']")
+    # Cargar y procesar la foto con estilo Y2K
+    nombre_foto = 'mono.jpeg' if os.path.exists('mono.jpeg') else 'mono.jpg'
+    
+    if os.path.exists(nombre_foto):
+        img_original = Image.open(nombre_foto)
+        img_y2k = aplicar_estilo_y2k(img_original)
+        
+        st.markdown('<div class="y2k-photo-frame">', unsafe_allow_html=True)
+        st.image(img_y2k, caption='★ Bea @ Y2K Cyber Space ★ 🐝', use_container_width=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+    else:
+        st.info("📌 [AQUÍ VA TU FOTO DE CARA/PERFIL - 'mono.jpeg']")
 
     # -----------------------------------------------------
     # MÚSICA DE FONDO (DESDE ARCHIVO LOCAL)
@@ -115,14 +140,13 @@ with st.sidebar:
     st.write("---")
     st.subheader("🎵 Background Music")
     
-    # Nombre del archivo MP3 que pondrás en tu carpeta
     archivo_musica = "musica.mp3"
     
     if os.path.exists(archivo_musica):
         st.audio(archivo_musica, format="audio/mp3", loop=True)
         st.caption("🎧 Sonando desde los archivos locales.")
     else:
-        st.info("📌 Coloca tu archivo de canción como `musica.mp3` en la misma carpeta del proyecto para que se reproduzca aquí.")
+        st.info("📌 Coloca tu archivo de canción como `musica.mp3` en la misma carpeta para reproducirla aquí.")
 
     st.write("---")
     st.subheader("★ Datos Personales ★")
@@ -178,11 +202,9 @@ with tab_inicio:
     TouchDesigner y diseño sonoro en Reaper para llevar las interfaces a otro nivel[cite: 1].
     """)
     
-    try:
-        img_blog = Image.open('mono.jpg')
-        st.image(img_blog, caption='Evolución de las Interfaces Multimodales & Experiencias Híbridas', width=450)
-    except Exception:
-        st.info("📌 [IMAGEN DESTACADA 'mono.jpg']")
+    if os.path.exists(nombre_foto):
+        img_blog = Image.open(nombre_foto)
+        st.image(aplicar_estilo_y2k(img_blog), caption='Evolución de las Interfaces Multimodales & Experiencias Híbridas', width=420)
 
     st.write("---")
 
@@ -276,7 +298,7 @@ with tab_comentarios:
     # Historial de comentarios
     if 'comentarios' not in st.session_state:
         st.session_state['comentarios'] = [
-            {"nombre": "RetroFan2000", "fecha": "2026-09-28", "mensaje": "¡Amé el ambiente sonoro y el diseño de la página!"},
+            {"nombre": "RetroFan2000", "fecha": "2026-09-28", "mensaje": "¡Amé la estética Y2K de la foto de perfil y la página!"},
             {"nombre": "EAFIT_Visitor", "fecha": "2026-09-29", "mensaje": "Increíble portafolio de experiencias inmersivas. ¡Éxitos desde Medayork!"}
         ]
 
