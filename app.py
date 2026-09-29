@@ -109,27 +109,27 @@ with st.sidebar:
         st.info("📌 [AQUÍ VA TU FOTO DE CARA/PERFIL - 'mono.jpg']")
 
     # -----------------------------------------------------
-    # SECCIÓN DE MÚSICA FRUTIGER AERO (CAJA DESPLEGABLE)
+    # SECCIÓN DE MÚSICA FRUTIGER AERO (SELECCIÓN PERSONALIZADA)
     # -----------------------------------------------------
     with st.expander("🌐 **FRUTIGER AERO AUDIO PLAYER**", expanded=True):
-        st.write("🎧 Elige un track con vibra Frutiger Aero de los 2000s:")
+        st.write("🎧 Selecciona una joya del universo Frutiger Aero:")
         
-        # Selección de canciones estilo Frutiger Aero
+        # Diccionario con tus 3 canciones específicas
         canciones_frutiger = {
-            "🌊 Wii Channel & Aero Lounge": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-            "🐬 Windows Vista Aquatic Chill": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-            "🌐 3DS eShop Tech-Lounge": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+            "💿 Takeshi Abo – Lease": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+            "🎮 Wii U – New Look": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+            "✨ Aphex Twin – Flim": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
         }
         
         cancion_seleccionada = st.selectbox(
-            "Selecciona tu track Frutiger Aero:",
+            "Selecciona tu track:",
             list(canciones_frutiger.keys())
         )
         
         # Reproductor de audio
         audio_url = canciones_frutiger[cancion_seleccionada]
         st.audio(audio_url, format="audio/mp3", loop=True)
-        st.caption("✨ Sonido cristalino, optimismo y sintetizadores flotantes.")
+        st.caption("🫧 Sintetizadores cristalinos, nostalgia acuática y tecnología optimista.")
 
     st.write("---")
     st.subheader("★ Datos Personales ★")
@@ -138,7 +138,7 @@ with st.sidebar:
     * **Rol:** Diseñadora Interactiva / Narrativas 3D/2D/ANG[cite: 1]
     * **Especialidad:** Unity, Maya 3D, Figma y Adobe Creative Cloud[cite: 1]
     * **Estado actual:** 🟢 Diseño Sonoro / Projection Mapping
-    * **Música favorita:** Breakcore & Frutiger Aero Ambient 🎧
+    * **Música favorita:** Frutiger Aero, IDM & Breakcore 🎧
     * **Ubicación:** Medayork 🌐 *(Medellín, Col)*[cite: 1]
     """)
     
@@ -261,7 +261,7 @@ with tab_multimodal:
         if modo == 'Visual':
             st.write('👁️ La vista es fundamental para la interpretación gráfica y el mapping.')
         elif modo == 'Auditiva':
-            st.write('🎧 La audición y el Frutiger Aero potencian el ambiente inmersivo.')
+            st.write('🎧 La audición con Lease y Flim potencia la estética Frutiger Aero.')
         elif modo == 'Táctil':
             st.write('✋ El tacto con elementos análogos aporta tridimensionalidad.')
 
@@ -283,7 +283,7 @@ with tab_comentarios:
     # Historial de comentarios
     if 'comentarios' not in st.session_state:
         st.session_state['comentarios'] = [
-            {"nombre": "RetroFan2000", "fecha": "2026-09-28", "mensaje": "¡Me encanta la temática de abejas y los tracks Frutiger Aero!"},
+            {"nombre": "RetroFan2000", "fecha": "2026-09-28", "mensaje": "¡Amé que pusieras 'Lease' de Takeshi Abo y 'Flim' de Aphex Twin!"},
             {"nombre": "EAFIT_Visitor", "fecha": "2026-09-29", "mensaje": "Increíble portafolio de experiencias inmersivas. ¡Éxitos desde Medayork!"}
         ]
 
